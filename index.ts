@@ -131,8 +131,10 @@ function draw() {
   g.clearRect(0, 0, canvas.width, canvas.height);
 
   drawMap(g);
+  drawPlayer(g);
+}
 
-  // Draw player
+function drawPlayer(g: CanvasRenderingContext2D) {
   g.fillStyle = "#ff0000";
   g.fillRect(playerx * TILE_SIZE, playery * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 }
