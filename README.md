@@ -26,3 +26,11 @@ If you have feedback or comments on this repo don't hesitate to write me a messa
 
 Thank you for checking it out.
 
+## Repository Cleanup
+
+To ensure that local tags are in sync with the remote repository and to remove any local tags that have not been pushed, it is recommended to run the following command periodically:
+
+```shell
+git fetch --prune --tags
+
+
