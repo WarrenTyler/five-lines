@@ -106,12 +106,16 @@ function updateMap() {
 }
 
 function updateTile(y: number, x: number) {
-  if ((map[y][x] === Tile.STONE || map[y][x] === Tile.FALLING_STONE) &&
-    map[y + 1][x] === Tile.AIR) {
+  if (
+    (map[y][x] === Tile.STONE || map[y][x] === Tile.FALLING_STONE) &&
+    map[y + 1][x] === Tile.AIR
+  ) {
     map[y + 1][x] = Tile.FALLING_STONE;
     map[y][x] = Tile.AIR;
-  } else if ((map[y][x] === Tile.BOX || map[y][x] === Tile.FALLING_BOX) &&
-    map[y + 1][x] === Tile.AIR) {
+  } else if (
+    (map[y][x] === Tile.BOX || map[y][x] === Tile.FALLING_BOX) &&
+    map[y + 1][x] === Tile.AIR
+  ) {
     map[y + 1][x] = Tile.FALLING_BOX;
     map[y][x] = Tile.AIR;
   } else if (map[y][x] === Tile.FALLING_STONE) {
@@ -124,11 +128,15 @@ function updateTile(y: number, x: number) {
 function handleInputs() {
   while (inputs.length > 0) {
     let current = inputs.pop();
-    if (current === Input.LEFT) moveHorizontal(-1);
-    else if (current === Input.RIGHT) moveHorizontal(1);
-    else if (current === Input.UP) moveVertical(-1);
-    else if (current === Input.DOWN) moveVertical(1);
+    handleInput(current);
   }
+}
+
+function handleInput(input: Input) {
+  if (input === Input.LEFT) moveHorizontal(-1);
+  else if (input === Input.RIGHT) moveHorizontal(1);
+  else if (input === Input.UP) moveVertical(-1);
+  else if (input === Input.DOWN) moveVertical(1);
 }
 
 function draw() {
